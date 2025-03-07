@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SobraZero - Redistribución de Excedentes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>SobraZero</h1>
+    <nav>
+      <button onclick="mostrarSeccion('inventario')">Inventario</button>
+      <button onclick="mostrarSeccion('redistribucion')">Redistribución</button>
+      <button onclick="mostrarSeccion('optimizacion')">Optimización</button>
+      <button onclick="mostrarSeccion('educacion')">Educación</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inventario" class="seccion">
+      <h2>Registrar Inventario</h2>
+      <form id="formInventario">
+        <input type="text" id="productoInv" placeholder="Producto" required>
+        <input type="number" id="cantidadInv" placeholder="Cantidad (kg/platos)" required>
+        <select id="estadoInv" required>
+          <option value="Preparado">Preparado</option>
+          <option value="Ingrediente">Ingrediente</option>
+        </select>
+        <button type="submit">Guardar</button>
+      </form>
+      <div id="listaInventario"></div>
+    </section>
+
+    <section id="redistribucion" class="seccion" style="display:none;">
+      <h2>Gestionar Sobras</h2>
+      <form id="formRedistribucion">
+        <input type="text" id="productoRed" placeholder="Producto" required>
+        <input type="number" id="cantidadRed" placeholder="Cantidad" required>
+        <select id="tipoRed" required>
+          <option value="Plato">Plato</option>
+          <option value="Ingrediente">Ingrediente</option>
+        </select>
+        <select id="accionRed" required>
+          <option value="Donar">Donar</option>
+          <option value="Vender">Vender</option>
+        </select>
+        <button type="submit">Guardar</button>
+      </form>
+      <div id="listaRedistribucion"></div>
+    </section>
+
+    <section id="optimizacion" class="seccion" style="display:none;">
+      <h2>Optimización</h2>
+      <button onclick="actualizarEstadisticas()">Actualizar Estadísticas</button>
+      <div id="estadisticas">
+        <p>Total Registrado: <span id="totalRegistrado">0</span> kg/platos</p>
+        <p>Desperdicio Reducido: <span id="desperdicioReducido">0</span> kg/platos</p>
+        <p>Sugerencia: <span id="sugerencia">-</span></p>
+      </div>
+    </section>
+
+    <section id="educacion" class="seccion" style="display:none;">
+      <h2>Calculadora de Porciones</h2>
+      <form id="formPorciones">
+        <input type="number" id="clientes" placeholder="Clientes Esperados" required>
+        <input type="text" id="ingrediente" placeholder="Ingrediente" required>
+        <input type="number" id="cantidadPorPersona" placeholder="Cantidad por Persona (kg)" required>
+        <button type="submit">Calcular</button>
+      </form>
+      <div id="resultadoPorciones"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
